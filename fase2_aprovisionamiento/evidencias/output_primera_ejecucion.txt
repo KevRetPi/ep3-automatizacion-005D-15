@@ -1,0 +1,39 @@
+
+PLAY [Aprovisionamiento y Configuracion Corporativa] ***************************
+
+TASK [Verificar si el respaldo ya existe] **************************************
+ok: [csr1kv]
+
+TASK [1a. Obtener running-config] **********************************************
+ok: [csr1kv]
+
+TASK [1b. Guardar respaldo en archivo] *****************************************
+changed: [csr1kv]
+
+TASK [2. Habilitar NETCONF] ****************************************************
+ok: [csr1kv]
+
+TASK [3. Habilitar RESTCONF] ***************************************************
+ok: [csr1kv]
+
+TASK [4. Habilitar servidor HTTP seguro] ***************************************
+ok: [csr1kv]
+
+TASK [5. Configurar hostname corporativo] **************************************
+changed: [csr1kv]
+
+TASK [6. Configurar banner de acceso] ******************************************
+changed: [csr1kv]
+
+TASK [7. Configurar servidor NTP] **********************************************
+changed: [csr1kv]
+
+TASK [8. Configurar descripcion de interfaz WAN] *******************************
+changed: [csr1kv]
+
+TASK [9. Crear interfaz Loopback con IP de gestion] ****************************
+changed: [csr1kv]
+
+PLAY RECAP *********************************************************************
+csr1kv                     : ok=11   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

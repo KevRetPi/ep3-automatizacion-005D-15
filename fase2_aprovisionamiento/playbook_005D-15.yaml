@@ -1,0 +1,66 @@
+---
+- name: Aprovisionamiento y Configuracion Corporativa
+  hosts: routers
+  gather_facts: no
+  vars_files:
+    - ../vars/vars_005D-15.yaml
+
+  tasks:
+    - name: Verificar si el respaldo ya existe
+      stat:
+        path: "respaldo/backup_{{ alumno.codigo }}.cfg"
+      register: backup_file
+
+    - name: 1a. Obtener running-config
+      ios_command:
+        commands: show running-config
+      register: run_config
+      when: not backup_file.stat.exists
+
+    - name: 1b. Guardar respaldo en archivo
+      copy:
+        content: "{{ run_config.stdout[0] }}"
+        dest: "respaldo/backup_{{ alumno.codigo }}.cfg"
+      when: not backup_file.stat.exists
+
+    - name: 2. Habilitar NETCONF
+      ios_config:
+        lines:
+          - netconf-yang
+
+    - name: 3. Habilitar RESTCONF
+      ios_config:
+        lines:
+          - restconf
+
+    - name: 4. Habilitar servidor HTTP seguro
+      ios_config:
+        lines:
+          - ip http secure-server
+
+    - name: 5. Configurar hostname corporativo
+      ios_system:
+        hostname: "{{ cliente.hostname }}"
+
+    - name: 6. Configurar banner de acceso
+      ios_banner:
+        banner: motd
+        text: "{{ router.banner }}"
+        state: present
+
+    - name: 7. Configurar servidor NTP
+      ios_config:
+        lines:
+          - ntp server {{ router.ntp_server }}
+
+    - name: 8. Configurar descripcion de interfaz WAN
+      ios_config:
+        lines:
+          - description {{ router.descripcion_wan }}
+        parents: interface GigabitEthernet1
+
+    - name: 9. Crear interfaz Loopback con IP de gestion
+      ios_config:
+        lines:
+          - ip address {{ router.loopback_ip }} {{ router.loopback_mask }}
+        parents: interface Loopback{{ router.loopback_id }}
