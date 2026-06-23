@@ -1,0 +1,27 @@
+[2026-06-23 21:41:01,388] +++ CSR1kv logfile evidencias/baseline_005D-15/connection_CSR1kv.txt +++
+[2026-06-23 21:41:01,388] +++ Unicon plugin iosxe +++
+The authenticity of host '192.168.56.101 (192.168.56.101)' can't be established.
+RSA key fingerprint is SHA256:mXG8ZTI1Z4HH9qv0CTEX4pV6IcWSKtpVCusmiHSas6M.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+[2026-06-23 21:41:01,439] +++ connection to spawn: ssh -l cisco -o KexAlgorithms=diffie-hellman-group14-sha1 192.168.56.101 22, id: 140147470862848 +++
+[2026-06-23 21:41:01,440] connection to CSR1kv
+yes
+Warning: Permanently added '192.168.56.101' (RSA) to the list of known hosts.
+Password: 
+
+*                                           *
+**                                         **
+***                                       ***
+***  Cisco Networking Academy             ***
+***   Emerging Technologies Workshop:     ***
+***    Model Driven Programmability       ***
+***                                       ***
+***  This software is provided for        ***
+***   Educational Purposes                ***
+***    Only in Networking Academies       ***
+***                                       ***
+**                                         **
+*                                           *
+
+
+% 22 is not an open connectionConnection to 192.168.56.101 closed by remote host.
