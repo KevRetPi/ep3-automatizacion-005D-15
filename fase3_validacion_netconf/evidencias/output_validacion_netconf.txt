@@ -1,0 +1,18 @@
+=== VALIDACION NETCONF ===
+Script : validacion_netconf.py
+Fecha  : 2026-06-23 22:43:46
+Host   : labvm
+==========================
+
+Conectando al router via NETCONF por puerto 830...
+
+Resultados de la Auditoria:
+[OK] Hostname: RTR-IMPPAC
+[OK] IP Loopback: 10.5.15.1
+[OK] Mascara Loopback: 255.255.255.0
+[OK] Descripcion WAN: Enlace-WAN-Osorno
+[OK] Servidor NTP: 9.9.9.9
+
+--------------------------
+RESULTADO GLOBAL: CONFORME
+--------------------------
