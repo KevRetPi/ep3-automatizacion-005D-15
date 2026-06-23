@@ -1,0 +1,18 @@
+=== VALIDACION RESTCONF ===
+Script : validacion_restconf.py
+Fecha  : 2026-06-23 23:19:15
+Host   : labvm
+===========================
+
+Consultando API RESTCONF...
+
+Resultados de la Auditoria:
+[OK] Hostname: RTR-IMPPAC
+[OK] IP Loopback: 10.5.15.1
+[OK] Mascara Loopback: 255.255.255.0
+[OK] Descripcion WAN: Enlace-WAN-Osorno
+[FAIL] Servidor NTP: Esperado '9.9.9.9' | Encontrado 'N/A'
+
+--------------------------
+RESULTADO GLOBAL: NO CONFORME
+--------------------------
